@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 
-// thumbnail first, the real player only loads on click and starts right away,
-// so it is one click instead of one for the page and one more for youtube
+// plain youtube player. the thumbnail is only there so one click starts the
+// video (autoplay) instead of one click for the page and another for youtube
 export function VideoEmbed({ id, title }: { id: string; title: string }) {
-  const [playing, setPlaying] = useState(false);
+  const [started, setStarted] = useState(false);
 
   return (
-    <div className="aspect-video w-full overflow-hidden rounded-md border border-neutral-300 bg-black dark:border-neutral-700">
-      {playing ? (
+    <div className="relative aspect-video w-full overflow-hidden rounded-md border border-neutral-300 bg-black dark:border-neutral-700">
+      {started ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
           title={title}
@@ -21,7 +21,7 @@ export function VideoEmbed({ id, title }: { id: string; title: string }) {
       ) : (
         <button
           type="button"
-          onClick={() => setPlaying(true)}
+          onClick={() => setStarted(true)}
           aria-label={`Play ${title}`}
           className="group relative block h-full w-full cursor-pointer"
         >
