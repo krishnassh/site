@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+::selection {
+  background: #d4d4d4;
+  color: #262626;
+}
+
+/* rounded square with the smoother corner where the browser supports it */
+.squircle {
+  border-radius: 24%;
+  corner-shape: squircle;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
