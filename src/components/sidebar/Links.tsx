@@ -10,9 +10,12 @@ export function Links() {
           href={href}
           target={href.startsWith("mailto:") ? undefined : "_blank"}
           rel="noopener"
-          className="flex items-center gap-2 text-neutral-500 hover:text-neutral-900"
+          className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
         >
-          <Icon name={icon} className="h-4 w-4 shrink-0 [&>svg]:h-full [&>svg]:w-full" />
+          <Icon
+            name={icon}
+            className="h-4 w-4 shrink-0 [&>svg]:h-full [&>svg]:w-full"
+          />
           {label}
         </a>
       ))}

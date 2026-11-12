@@ -1,8 +1,23 @@
 @import "tailwindcss";
 
+/* dark mode is a class on <html>, on by default (see layout.tsx) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
 ::selection {
   background: #d4d4d4;
   color: #262626;
+}
+
+.dark ::selection {
+  background: #404040;
+  color: #fafafa;
 }
 
 /* rounded square with the smoother corner where the browser supports it */

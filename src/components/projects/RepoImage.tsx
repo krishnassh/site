@@ -9,7 +9,7 @@ export function RepoImage({ src, name }: { src: string; name: string }) {
 
   if (broken) {
     return (
-      <div className="flex aspect-[2/1] w-full items-center justify-center border-b border-neutral-200 bg-neutral-100 px-4 text-center text-sm font-medium text-neutral-400">
+      <div className="flex aspect-[2/1] w-full items-center justify-center border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 px-4 text-center text-sm font-medium text-neutral-400 dark:text-neutral-500">
         {name}
       </div>
     );
@@ -24,7 +24,7 @@ export function RepoImage({ src, name }: { src: string; name: string }) {
       sizes="(min-width: 640px) 300px, 90vw"
       priority
       onError={() => setBroken(true)}
-      className="aspect-[2/1] w-full border-b border-neutral-200 object-cover"
+      className="aspect-[2/1] w-full border-b border-neutral-200 dark:border-neutral-800 object-cover"
     />
   );
 }

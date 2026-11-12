@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Silkscreen } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { profile } from "@/data/profile";
@@ -28,15 +28,27 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        {/* dark by default, only a saved "light" choice turns it off */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem("theme")==="light"){document.documentElement.classList.remove("dark");document.querySelector('meta[name="theme-color"]').setAttribute("content","#fafafa")}}catch(e){}`,
+          }}
+        />
+      </head>
       <body
-        className={`min-h-screen bg-neutral-50 antialiased ${inter.className} ${silkscreen.variable}`}
+        className={`min-h-screen bg-neutral-50 text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-100 ${inter.className} ${silkscreen.variable}`}
       >
         {children}
         <Analytics />

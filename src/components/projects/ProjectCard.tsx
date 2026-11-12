@@ -21,7 +21,7 @@ export function ProjectCard({ repo }: { repo: Repo }) {
   } = repo;
 
   return (
-    <li className="flex flex-col overflow-hidden rounded-md border border-neutral-300 bg-white">
+    <li className="flex flex-col overflow-hidden rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900">
       <a href={url} target="_blank" rel="noopener">
         <RepoImage src={image} name={`${owner}/${name}`} />
       </a>
@@ -40,14 +40,16 @@ export function ProjectCard({ repo }: { repo: Repo }) {
             href={url}
             target="_blank"
             rel="noopener"
-            className="break-words text-sm font-semibold text-blue-600 hover:underline"
+            className="break-words text-sm font-semibold text-blue-600 hover:underline dark:text-blue-400"
           >
             {name}
           </a>
         </div>
 
         {description && (
-          <p className="mt-2 text-xs text-neutral-500">{description}</p>
+          <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+            {description}
+          </p>
         )}
 
         {topics.length > 0 && (
@@ -55,7 +57,7 @@ export function ProjectCard({ repo }: { repo: Repo }) {
             {topics.slice(0, MAX_TOPICS).map((topic) => (
               <li
                 key={topic}
-                className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700"
+                className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-500/15 dark:text-blue-300"
               >
                 {topic}
               </li>
@@ -63,7 +65,7 @@ export function ProjectCard({ repo }: { repo: Repo }) {
           </ul>
         )}
 
-        <div className="mt-auto flex flex-wrap items-center gap-4 pt-4 text-xs text-neutral-500">
+        <div className="mt-auto flex flex-wrap items-center gap-4 pt-4 text-xs text-neutral-500 dark:text-neutral-400">
           {language && (
             <span className="flex items-center gap-1">
               <span

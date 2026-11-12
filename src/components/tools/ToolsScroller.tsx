@@ -5,7 +5,13 @@ import { useAutoScroll } from "./useAutoScroll";
 
 type Tool = { name: string; icon: string; href: string };
 
-export function ToolsScroller({ tools, seconds }: { tools: Tool[]; seconds: number }) {
+export function ToolsScroller({
+  tools,
+  seconds,
+}: {
+  tools: Tool[];
+  seconds: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   useAutoScroll(ref, seconds);
 
@@ -35,9 +41,9 @@ export function ToolsScroller({ tools, seconds }: { tools: Tool[]; seconds: numb
                   src={`/tools/${tool.icon}`}
                   alt=""
                   draggable={false}
-                  className="h-7 w-7 opacity-60 grayscale transition duration-300 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0"
+                  className="h-7 w-7 opacity-60 grayscale dark:opacity-80 dark:brightness-[2.5] transition duration-300 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 dark:group-hover:brightness-150"
                 />
-                <span className="text-sm text-neutral-500 transition-colors duration-300 group-hover:text-neutral-900">
+                <span className="text-sm text-neutral-500 dark:text-neutral-400 transition-colors duration-300 group-hover:text-neutral-900 dark:group-hover:text-neutral-100">
                   {tool.name}
                 </span>
               </a>
