@@ -7,7 +7,10 @@ const repoIcon =
 
 const MAX_TOPICS = 4;
 
-export function ProjectCard({ repo }: { repo: Repo }) {
+// repos come in github's pin order, which reads two per row. on wider screens
+// the strip has two rows, so each card is placed by hand to read 1 2 / 3 4 and
+// then carry on. on phones it is one row and the order stays as is
+export function ProjectCard({ repo, index }: { repo: Repo; index: number }) {
   const {
     owner,
     name,
@@ -21,7 +24,15 @@ export function ProjectCard({ repo }: { repo: Repo }) {
   } = repo;
 
   return (
-    <li className="flex flex-col overflow-hidden rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900">
+    <li
+      style={
+        {
+          "--col": Math.floor(index / 4) * 2 + (index % 2) + 1,
+          "--row": Math.floor((index % 4) / 2) + 1,
+        } as React.CSSProperties
+      }
+      className="snap-start sm:[grid-column:var(--col)] sm:[grid-row:var(--row)] flex flex-col overflow-hidden rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900"
+    >
       <a href={url} target="_blank" rel="noopener">
         <RepoImage src={image} name={`${owner}/${name}`} />
       </a>

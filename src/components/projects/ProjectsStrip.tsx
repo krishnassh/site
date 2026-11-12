@@ -91,7 +91,7 @@ export function ProjectsStrip({ children }: { children: React.ReactNode }) {
     <div className="relative mx-auto max-w-4xl px-6">
       <ul
         ref={ref}
-        className="no-scrollbar grid auto-cols-[18rem] grid-flow-col grid-rows-2 gap-4 overflow-x-auto overscroll-x-contain pb-3 will-change-scroll sm:auto-cols-[20rem]"
+        className="no-scrollbar grid auto-cols-[18rem] grid-flow-col grid-rows-1 gap-4 sm:grid-rows-2 pointer-coarse:snap-x pointer-coarse:snap-mandatory overflow-x-auto overscroll-x-contain pb-3 will-change-scroll sm:auto-cols-[20rem]"
       >
         {children}
       </ul>
