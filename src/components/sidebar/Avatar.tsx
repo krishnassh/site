@@ -21,7 +21,7 @@ export function Avatar({ src, alt }: { src: string; alt: string }) {
 
   return (
     <div
-      className="squircle mb-4 aspect-square w-full max-w-[200px] cursor-pointer overflow-hidden"
+      className="squircle mb-4 aspect-square w-24 md:w-full md:max-w-[200px] cursor-pointer overflow-hidden"
       onMouseEnter={(e) => {
         const box = e.currentTarget.getBoundingClientRect();
         x.jump(e.clientX - box.left);

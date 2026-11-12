@@ -6,7 +6,7 @@ import { Orgs } from "./Orgs";
 
 export function Sidebar({ bio, orgs }: { bio: string | null; orgs: Org[] }) {
   return (
-    <aside className="mb-12 md:mb-0">
+    <aside className="mb-10 md:mb-0">
       <Avatar src={profile.avatar} alt={profile.name} />
       <h1 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
         {profile.name}

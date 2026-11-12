@@ -3,7 +3,7 @@ import { links } from "@/data/links";
 
 export function Links() {
   return (
-    <nav className="mt-6 flex flex-col gap-1.5 text-sm">
+    <nav className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm md:mt-6 md:flex-col md:gap-1.5">
       {links.map(({ label, href, icon }) => (
         <a
           key={label}
