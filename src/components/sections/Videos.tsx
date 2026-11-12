@@ -1,4 +1,5 @@
 import { Heading } from "@/components/ui/Heading";
+import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { videos } from "@/data/videos";
 
 function videoId(url: string): string | null {
@@ -19,22 +20,11 @@ export function Videos() {
   return (
     <section className="mx-auto max-w-4xl px-6">
       <Heading>Showcasing my projects</Heading>
-      <div className={`grid gap-4 ${ids.length > 1 ? "sm:grid-cols-2" : ""}`}>
+      <div
+        className={`grid max-w-2xl gap-4 ${ids.length > 1 ? "sm:grid-cols-2" : ""}`}
+      >
         {ids.map((id) => (
-          <div
-            key={id}
-            className="aspect-video overflow-hidden rounded-md border border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800"
-          >
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${id}`}
-              title="YouTube video"
-              loading="lazy"
-              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              className="h-full w-full"
-            />
-          </div>
+          <VideoEmbed key={id} id={id} title="Project showcase" />
         ))}
       </div>
     </section>
