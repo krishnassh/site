@@ -21,7 +21,7 @@ export function Videos() {
     <section className="mx-auto max-w-4xl px-6">
       <Heading>Showcasing my projects</Heading>
       <div
-        className={`grid max-w-2xl gap-4 ${ids.length > 1 ? "sm:grid-cols-2" : ""}`}
+        className={`grid gap-4 ${ids.length > 1 ? "sm:grid-cols-2" : ""}`}
       >
         {ids.map((id) => (
           <VideoEmbed key={id} id={id} title="Project showcase" />
