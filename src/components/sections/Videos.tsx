@@ -18,7 +18,7 @@ export function Videos() {
 
   return (
     <section className="mx-auto max-w-4xl px-6">
-      <Heading>Videos</Heading>
+      <Heading>Showcasing my projects</Heading>
       <div className={`grid gap-4 ${ids.length > 1 ? "sm:grid-cols-2" : ""}`}>
         {ids.map((id) => (
           <div
