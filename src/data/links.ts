@@ -11,6 +11,7 @@ export const links: Link[] = [
     href: "https://www.linkedin.com/in/krishnassh/",
     icon: "linkedin",
   },
+  { label: "YouTube", href: "https://www.youtube.com/@kwynx", icon: "youtube" },
   {
     label: "Discord",
     href: "https://discord.com/users/877351272251023440",
