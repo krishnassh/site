@@ -21,8 +21,7 @@ export function RepoImage({ src, name }: { src: string; name: string }) {
       alt={name}
       width={1280}
       height={640}
-      sizes="(min-width: 640px) 300px, 90vw"
-      priority
+      sizes="320px"
       onError={() => setBroken(true)}
       className="aspect-[2/1] w-full border-b border-neutral-200 dark:border-neutral-800 object-cover"
     />

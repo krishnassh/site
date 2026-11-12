@@ -14,15 +14,17 @@ export default async function Home() {
   const [repos, orgs, bio] = await Promise.all([getRepos(), getOrgs(), getBio()]);
 
   return (
-    <div className="relative mx-auto max-w-4xl px-6 py-16 md:grid md:grid-cols-[200px_1fr] md:gap-10">
-      <ThemeToggle />
-      <Sidebar bio={bio} orgs={orgs} />
-      <main className="min-w-0">
-        <NameCard name={profile.name} background={profile.nameCardColor} />
-        <About />
-        <Tools />
-        <Projects repos={repos} />
-      </main>
-    </div>
+    <>
+      <div className="relative mx-auto max-w-4xl px-6 pt-16 md:grid md:grid-cols-[200px_1fr] md:gap-10">
+        <ThemeToggle />
+        <Sidebar bio={bio} orgs={orgs} />
+        <main className="min-w-0">
+          <NameCard name={profile.name} background={profile.nameCardColor} />
+          <About />
+          <Tools />
+        </main>
+      </div>
+      <Projects repos={repos} />
+    </>
   );
 }
