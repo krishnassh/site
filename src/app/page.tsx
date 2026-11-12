@@ -2,6 +2,7 @@ import { NameCard } from "@/components/name-card/NameCard";
 import { About } from "@/components/sections/About";
 import { Projects } from "@/components/sections/Projects";
 import { Tools } from "@/components/sections/Tools";
+import { Videos } from "@/components/sections/Videos";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Sidebar } from "@/components/sidebar/Sidebar";
 import { profile } from "@/data/profile";
@@ -24,6 +25,7 @@ export default async function Home() {
           <Tools />
         </main>
       </div>
+      <Videos />
       <Projects repos={repos} />
     </>
   );
