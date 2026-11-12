@@ -11,7 +11,12 @@ export function Projects({ repos }: { repos: Repo[] }) {
       </div>
       <ProjectsStrip>
         {repos.map((repo, i) => (
-          <ProjectCard key={repo.url} repo={repo} index={i} />
+          <ProjectCard
+            key={repo.url}
+            repo={repo}
+            index={i}
+            total={repos.length}
+          />
         ))}
       </ProjectsStrip>
     </section>

@@ -8,9 +8,28 @@ const repoIcon =
 const MAX_TOPICS = 4;
 
 // repos come in github's pin order, which reads two per row. on wider screens
-// the strip has two rows, so each card is placed by hand to read 1 2 / 3 4 and
-// then carry on. on phones it is one row and the order stays as is
-export function ProjectCard({ repo, index }: { repo: Repo; index: number }) {
+// the strip has two rows, so full groups of four are placed to read 1 2 / 3 4.
+// a last group that isn't full goes down the columns instead, so the strip
+// doesn't end with a hole. on phones it is one row and the order stays as is
+function cell(index: number, total: number) {
+  const start = Math.floor(index / 4) * 4;
+  const k = index - start;
+  const col = (start / 4) * 2;
+  if (Math.min(4, total - start) === 4) {
+    return { col: col + (k % 2) + 1, row: Math.floor(k / 2) + 1 };
+  }
+  return { col: col + Math.floor(k / 2) + 1, row: (k % 2) + 1 };
+}
+
+export function ProjectCard({
+  repo,
+  index,
+  total,
+}: {
+  repo: Repo;
+  index: number;
+  total: number;
+}) {
   const {
     owner,
     name,
@@ -27,8 +46,8 @@ export function ProjectCard({ repo, index }: { repo: Repo; index: number }) {
     <li
       style={
         {
-          "--col": Math.floor(index / 4) * 2 + (index % 2) + 1,
-          "--row": Math.floor((index % 4) / 2) + 1,
+          "--col": cell(index, total).col,
+          "--row": cell(index, total).row,
         } as React.CSSProperties
       }
       className="snap-start sm:[grid-column:var(--col)] sm:[grid-row:var(--row)] flex flex-col overflow-hidden rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900"
