@@ -81,7 +81,7 @@ const jsonLd = {
 };
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID ?? "G-C0NYXNG25B";
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5LXK89V9";
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-TVZV9HCB";
 
 export default function RootLayout({
   children,
