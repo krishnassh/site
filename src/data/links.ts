@@ -3,7 +3,7 @@ import type { IconName } from "@/components/ui/Icons";
 type Link = { label: string; href: string; icon: IconName };
 
 export const links: Link[] = [
-  { label: "Website", href: "https://krishnassh.github.io/", icon: "website" },
+  { label: "Website", href: "https://krishnassh.com/", icon: "website" },
   { label: "GitHub", href: "https://github.com/krishnassh", icon: "github" },
   { label: "Twitter", href: "https://x.com/krishnassh", icon: "twitter" },
   {
