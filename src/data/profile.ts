@@ -1,4 +1,7 @@
 export const profile = {
+  // canonical origin, override with NEXT_PUBLIC_SITE_URL when deploying elsewhere
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://krishnassh.github.io",
+  jobTitle: "Software Engineer",
   name: "Krishna Gopal",
   // shown under the name until the github bio loads (or if it fails)
   tagline: "dead internet theory",
