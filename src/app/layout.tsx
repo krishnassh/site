@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter, Silkscreen } from "next/font/google";
 import { profile } from "@/data/profile";
 import { links } from "@/data/links";
@@ -79,6 +80,9 @@ const jsonLd = {
     .filter((h) => h.startsWith("http") && !h.startsWith(profile.siteUrl)),
 };
 
+const gaId = process.env.NEXT_PUBLIC_GA_ID ?? "G-C0NYXNG25B";
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5LXK89V9";
+
 export default function RootLayout({
   children,
 }: {
@@ -104,6 +108,28 @@ export default function RootLayout({
           }}
         />
         {children}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        <Script id="gtm" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`}
+        </Script>
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${gaId}");`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
