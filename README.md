@@ -1,5 +1,9 @@
 # site
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3bea2081-1832-4421-be52-2c629c0c7158" />
+
+
+
 My personal site. Next.js, Tailwind, deployed on Vercel.
 
 ```sh
